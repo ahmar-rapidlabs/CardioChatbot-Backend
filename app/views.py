@@ -2,7 +2,6 @@
 
 import logging
 from django.shortcuts import render
-from dotenv import load_dotenv
 import os
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
@@ -14,7 +13,10 @@ from llama_index.core import StorageContext, VectorStoreIndex, load_index_from_s
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.memory.chat_memory_buffer import ChatMemoryBuffer, SimpleChatStore, ChatMessage
 
-load_dotenv()
+# Ensure the environment variable is set
+openai_api_key = os.environ.get('OPENAI_API_KEY')
+if not openai_api_key:
+    raise ValueError("The OPENAI_API_KEY environment variable is not set")
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
@@ -61,7 +63,7 @@ chat_memory = ChatMemoryBuffer.from_defaults(
     token_limit=2048
 )
 
-llm = OpenAI(model="gpt-4")
+llm = OpenAI(model="gpt-4", api_key=openai_api_key)
 agent = ReActAgent.from_tools(tools, llm=llm, verbose=True, context=base_context, memory=chat_memory)
 
 def query_with_memory(agent, prompt):

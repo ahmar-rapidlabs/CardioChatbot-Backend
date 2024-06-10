@@ -6,9 +6,9 @@ set -e
 
 # If using Private Repo
 #GIT_REPO_URL="https://<your_username>:<your_PAT>@github.com/codewithmuh/django-aws-ec2-autoscaling.git"
-GIT_REPO_URL="https://github.com/ahmar-rapidlabs/backendLegalbot.git"
+GIT_REPO_URL="https://github.com/ahmar-rapidlabs/cardiobot.git"
 # Replace {YOUR_PROJECT_MAIN_DIR_NAME} with your actual project directory name
-PROJECT_MAIN_DIR_NAME="backendLegalbot"
+PROJECT_MAIN_DIR_NAME="cardiobot"
 
 # Clone repository
 git clone "$GIT_REPO_URL" "/home/ubuntu/$PROJECT_MAIN_DIR_NAME"

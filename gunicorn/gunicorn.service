@@ -6,8 +6,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/backendLegalbot
-ExecStart=/home/ubuntu/backendLegalbot/venv/bin/gunicorn \
+WorkingDirectory=/home/ubuntu/cardiobot
+ExecStart=/home/ubuntu/cardiobot/venv/bin/gunicorn \
           --access-logfile - \
           --workers 5 \  # Increased to 5 workers
           --timeout 60 \  # Increased timeout to 60 seconds
