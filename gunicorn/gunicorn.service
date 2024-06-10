@@ -12,7 +12,7 @@ ExecStart=/home/ubuntu/cardiobot/venv/bin/gunicorn \
           --workers 5 \  # Increased to 5 workers
           --timeout 60 \  # Increased timeout to 60 seconds
           --bind unix:/run/gunicorn.sock \
-          legalChatbot.wsgi:application
+          cardiobot.wsgi:application
 Restart=always
 
 [Install]
